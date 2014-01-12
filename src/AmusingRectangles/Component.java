@@ -48,7 +48,7 @@ public class Component extends Canvas implements Runnable {
         createBufferStrategy(3);
         requestFocus();
 
-        client = new Client("UDP");
+        client = new Client("TCP");
         field = new Field(this);
 
         client.addEventListener(new Listener() {
@@ -100,7 +100,7 @@ public class Component extends Canvas implements Runnable {
         }
 
         if (action.equals("s")) {
-            server = new Server("UDP");
+            server = new Server("TCP");
 
             try {
                 client.connect("localhost");

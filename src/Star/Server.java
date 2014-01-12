@@ -65,7 +65,7 @@ public class Server extends NetworkEntity {
         if(getProtocol().equals("UDP"))
             server.sendToAllExceptUDP(c.getID(), NetworkEntity.CLIENT_CONNECTED);
         else
-            server.sendToAllExceptUDP(c.getID(), NetworkEntity.CLIENT_CONNECTED);
+            server.sendToAllExceptTCP(c.getID(), NetworkEntity.CLIENT_CONNECTED);
 
         AuthResponse response = new AuthResponse();
         response.startId = (server.getConnections().length - 1) * 10000;

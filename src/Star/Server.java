@@ -5,6 +5,7 @@ import Common.AuthResponse;
 import Common.Console;
 import Common.NetworkEntity;
 import Common.Packet;
+import Common.Update;
 import com.esotericsoftware.kryonet.Connection;
 
 
@@ -41,6 +42,14 @@ public class Server extends NetworkEntity {
     public void received(Connection c, Object o) {
         if (o instanceof Packet) {
             Packet p = (Packet) o;
+            if (getProtocol().equals("UDP")) {
+                server.sendToAllUDP(o);
+            } else {
+                server.sendToAllTCP(o);
+            }
+        }
+        else if(o instanceof Update) {
+            Update p = (Update) o;
             if (getProtocol().equals("UDP")) {
                 server.sendToAllUDP(o);
             } else {

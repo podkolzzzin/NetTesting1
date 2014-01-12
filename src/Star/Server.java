@@ -3,6 +3,7 @@ package Star;
 import AmusingRectangles.Entity;
 import Common.AuthResponse;
 import Common.Console;
+import Common.Disconnected;
 import Common.NetworkEntity;
 import Common.Packet;
 import Common.Update;
@@ -69,6 +70,7 @@ public class Server extends NetworkEntity {
 
         AuthResponse response = new AuthResponse();
         response.startId = (server.getConnections().length - 1) * 10000;
+        response.yourId = c.getID();
         if(server.getConnections().length==1)
             response.entities = new Entity[0];
         else
@@ -83,5 +85,15 @@ public class Server extends NetworkEntity {
 
     private Entity[] askForEntities() {
         return connectedClient.getListener().onAskForEntities();
+    }
+
+    @Override
+    public void disconnected(Connection c) {
+        Disconnected disconnected = new Disconnected();
+        disconnected.userId = c.getID();
+        if(getProtocol().equals("TCP"))
+            server.sendToAllExceptTCP(c.getID(), disconnected);
+        else
+            server.sendToAllExceptUDP(c.getID(), disconnected);
     }
 }

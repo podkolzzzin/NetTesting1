@@ -3,6 +3,7 @@ package Star;
 import AmusingRectangles.Entity;
 import Common.AuthResponse;
 import Common.Console;
+import Common.Disconnected;
 import Common.Listener;
 import Common.NetworkEntity;
 import Common.Packet;
@@ -83,6 +84,11 @@ public class Client extends NetworkEntity {
         else if(o instanceof Update) {
             if(listener!=null)
                 listener.onUpdate((Update)o);
+        }
+        else if(o instanceof Disconnected)
+        {
+            if(listener!=null)
+                listener.onDisconnect(((Disconnected)o).userId);
         }
         else if(o instanceof Integer) {
             int command = (Integer) o;

@@ -10,4 +10,5 @@ public interface Listener {
     public void onClientAdded();
     public Entity[] onAskForEntities();
     void onUpdate(Update o);
+    void onDisconnect(int userId);
 }

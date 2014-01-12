@@ -12,4 +12,5 @@ import java.util.ArrayList;
 public class AuthResponse {
     public Entity[] entities;
     public int startId;
+    public int yourId;
 }

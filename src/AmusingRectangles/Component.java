@@ -37,6 +37,8 @@ public class Component extends Canvas implements Runnable {
     private Server server;
     private Client client;
 
+    private int userId;
+
     public Component() {
         Dimension d = new Dimension(WIDTH, HEIGHT);
         setMinimumSize(d);
@@ -48,28 +50,25 @@ public class Component extends Canvas implements Runnable {
         createBufferStrategy(3);
         requestFocus();
 
-        client = new Client("TCP");
+        client = new Client("UDP");
         field = new Field(this);
 
         client.addEventListener(new Listener() {
             @Override
             public void onReceived(Packet p) {
-                Console.writeLine(p);
-
-                field.addRect((int) p.id, p.x, p.y, true);
+                field.addRect((int) p.id, p.x, p.y, p.owner, true);
             }
 
             @Override
             public void onConnected(AuthResponse response) {
-                Console.writeLine("Connected?");
                 // I am a pure client and want to gain the current game state
                 if (server == null) {
-                    Console.writeLine(response.startId + ", " + response.entities.length);
                     Entity.serialId = response.startId;
+                    userId = response.yourId;
+
                     for (int i = 0, len = response.entities.length; i < len; ++i) {
                         Entity entity = response.entities[i];
-                        Console.writeLine("Rect " + entity.getId() + " while receiving: " + entity.getX() + ", " + entity.getY());
-                        field.addRect(response.entities[i].getId(), response.entities[i].getX(), response.entities[i].getY(), true);
+                        field.addRect(response.entities[i].getId(), entity.getX(), entity.getY(), entity.getOwner(), true);
                     }
                 }
 
@@ -78,7 +77,6 @@ public class Component extends Canvas implements Runnable {
 
             @Override
             public void onClientAdded() {
-                Console.writeLine("Client added to client");
             }
 
             @Override
@@ -92,6 +90,12 @@ public class Component extends Canvas implements Runnable {
                 rect.setX(o.x);
                 rect.setY(o.y);
             }
+
+            @Override
+            public void onDisconnect(int userId) {
+                Console.writeLine("Disconnection: " + userId);
+                field.removeAllByOwner(userId);
+            }
         });
 
         String action = "";
@@ -100,7 +104,7 @@ public class Component extends Canvas implements Runnable {
         }
 
         if (action.equals("s")) {
-            server = new Server("TCP");
+            server = new Server("UDP");
 
             try {
                 client.connect("localhost");
@@ -238,5 +242,9 @@ public class Component extends Canvas implements Runnable {
 
     public InputHandler getInput() {
         return input;
+    }
+
+    public int getUserId() {
+        return userId;
     }
 }

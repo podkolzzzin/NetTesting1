@@ -8,6 +8,7 @@ package Common;
 public class Packet {
     public int x, y, width, height;
     public long id;
+    public int owner;
 
     @Override
     public String toString() {

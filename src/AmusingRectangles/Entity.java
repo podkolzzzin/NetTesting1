@@ -13,6 +13,7 @@ public class Entity {
     private int id;
     private int x, y;
     private int width, height;
+    private int owner;
 
     public Entity() {
         init();
@@ -84,5 +85,13 @@ public class Entity {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    public int getOwner() {
+        return owner;
+    }
+
+    public void setOwner(int owner) {
+        this.owner = owner;
     }
 }

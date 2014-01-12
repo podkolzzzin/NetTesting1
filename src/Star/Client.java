@@ -39,7 +39,7 @@ public class Client extends NetworkEntity {
         finishOperation();
     }
 
-    public void send(int x, int y, int w, int h, int id) {
+    public void send(int x, int y, int w, int h, int id, int owner) {
         startOperation();
         Packet p = new Packet();
         p.x = x;
@@ -47,12 +47,13 @@ public class Client extends NetworkEntity {
         p.width = w;
         p.height = h;
         p.id = id;
+        p.owner = owner;
         if (getProtocol().equals("UDP")) { client.sendUDP(p); } else { client.sendTCP(p); }
         finishOperation();
     }
 
     public void send(Entity e) {
-        send(e.getX(), e.getY(), e.getWidth(), e.getHeight(), e.getId());
+        send(e.getX(), e.getY(), e.getWidth(), e.getHeight(), e.getId(), e.getOwner());
     }
 
     public void update(Entity e) {
@@ -74,29 +75,21 @@ public class Client extends NetworkEntity {
         if (o instanceof Packet) {
             //Console.writeLine(o);
             if (listener != null) { listener.onReceived((Packet) o); }
-        }
-        else if(o instanceof AuthResponse) {
-            Console.writeLine("Start iterate IDs from "+ o);
-            if(listener!=null) {
+        } else if (o instanceof AuthResponse) {
+            Console.writeLine("Start iterate IDs from " + o);
+            if (listener != null) {
                 listener.onConnected((AuthResponse) o);
             }
-        }
-        else if(o instanceof Update) {
-            if(listener!=null)
-                listener.onUpdate((Update)o);
-        }
-        else if(o instanceof Disconnected)
-        {
-            if(listener!=null)
-                listener.onDisconnect(((Disconnected)o).userId);
-        }
-        else if(o instanceof Integer) {
+        } else if (o instanceof Update) {
+            if (listener != null) { listener.onUpdate((Update) o); }
+        } else if (o instanceof Disconnected) {
+            if (listener != null) { listener.onDisconnect(((Disconnected) o).userId); }
+        } else if (o instanceof Integer) {
             int command = (Integer) o;
-            if(listener==null) {
+            if (listener == null) {
                 Console.writeLine("You must add listener to Star.Client earlier!");
                 System.exit(-1);
-            }
-            else if(command == NetworkEntity.CLIENT_CONNECTED) {
+            } else if (command == NetworkEntity.CLIENT_CONNECTED) {
                 listener.onClientAdded();
             }
         }

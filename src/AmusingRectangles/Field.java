@@ -19,7 +19,7 @@ public class Field {
     }
 
     public void init() {
-        addRect(-1, 400 + random.nextInt(128), 200 + random.nextInt(96), false);
+        addRect(-1, 400 + random.nextInt(128), 200 + random.nextInt(96), -1, false);
     }
 
     private int prevX, prevY;
@@ -74,23 +74,42 @@ public class Field {
     // ===============
     // Data processing
 
-    public void addRect(int id, int x, int y, boolean fromReceiver) {
+    public void addRect(int id, int x, int y, int owner, boolean fromReceiver) {
         ARect rect = new ARect(x, y);
 
         if (id != -1) {
             rect.setId(id);
         }
 
-        rects.put(rect.getId(), rect);
+        if (owner != -1) {
+            rect.setOwner(owner);
+        } else {
+            rect.setOwner(component.getUserId());
+        }
+
+        synchronized (rects) {
+            rects.put(rect.getId(), rect);
+        }
+
+        Console.writeLine("Rect(owner=" + rect.getOwner() + ", id=" + rect.getId() + ")");
 
         if (!fromReceiver) {
             component.getClient().send(rect);
         }
-
-        Console.writeLine("New rect (" + rect.getId() + "): " + rect.getX() + ", " + rect.getY() + " => " + rects.size());
     }
 
     public HashMap<Integer, ARect> getRects() {
         return rects;
+    }
+
+    public void removeAllByOwner(int userId) {
+        synchronized (rects) {
+            for (Iterator it = rects.entrySet().iterator(); it.hasNext(); ) {
+                Map.Entry<Integer, ARect> pair = (Map.Entry) it.next();
+                if (pair.getValue().getOwner() == userId) {
+                    it.remove();
+                }
+            }
+        }
     }
 }

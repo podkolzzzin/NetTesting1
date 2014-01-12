@@ -1,5 +1,7 @@
 package AmusingRectangles;
 
+import java.awt.*;
+
 /**
  * Created by Alexey
  * At 7:12 PM on 1/12/14
@@ -27,6 +29,18 @@ public class Entity {
 
     public void init() {
         id = ++serialId;
+    }
+
+    public Rectangle getBB() {
+        return new Rectangle(x, y, width, height);
+    }
+
+    public boolean intersects(Point point) {
+        return getBB().contains(point);
+    }
+
+    public boolean intersects(Rectangle rectangle) {
+        return rectangle.intersects(getBB());
     }
 
     // ===================

@@ -170,6 +170,7 @@ public class Component extends Canvas implements Runnable {
 
     private void update() {
         input.update();
+        field.update();
     }
 
     private void render() {
@@ -224,5 +225,9 @@ public class Component extends Canvas implements Runnable {
 
     public Client getClient() {
         return client;
+    }
+
+    public InputHandler getInput() {
+        return input;
     }
 }

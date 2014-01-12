@@ -22,22 +22,53 @@ public class Field {
         addRect(-1, 400 + random.nextInt(128), 200 + random.nextInt(96), false);
     }
 
+    private int prevX, prevY;
+
+    public void update() {
+        InputHandler input = component.getInput();
+
+        ARect rect = getElementAt(input.getMouseX(), input.getMouseY());
+
+        if (!input.isMousePressed()) {
+            prevX = input.getMouseX();
+            prevY = input.getMouseY();
+        }
+
+        if (input.isMousePressed() && rect != null) {
+            int dx = input.getMouseX() - prevX;
+            int dy = input.getMouseY() - prevY;
+
+            Console.writeLine((dx) + ", " + (dy));
+
+            rect.setX(input.getMouseX() - dx);
+            rect.setY(input.getMouseY() - dy);
+
+            prevX = input.getMouseX();
+            prevY = input.getMouseY();
+        }
+    }
+
     public void render(Graphics g) {
         synchronized (rects) {
-            for (Iterator it = rects.entrySet().iterator(); it.hasNext(); ) {
-                ARect rect = (ARect) ((Map.Entry) it.next()).getValue();
+            for (ARect rect : rects.values()) {
                 rect.render(g);
             }
         }
     }
 
+    public ARect getElementAt(int x, int y) {
+        synchronized (rects) {
+            for (ARect rect : rects.values()) {
+                if (rect.intersects(new Point(x, y))) {
+                    return rect;
+                }
+            }
+        }
+        return null;
+    }
+
     // ===============
     // Data processing
-
-    private Color[] colors = new Color[]{
-            Color.ORANGE, Color.RED, Color.MAGENTA, Color.CYAN,
-            Color.WHITE, Color.GREEN, Color.GRAY, Color.PINK
-    };
 
     public void addRect(int id, int x, int y, boolean fromReceiver) {
         ARect rect = new ARect(x, y);

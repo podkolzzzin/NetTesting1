@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7c8cfaa-366e-4ea7-b41a-6a9eba333787" name="Default" comment="Network fairly works.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="f7c8cfaa-366e-4ea7-b41a-6a9eba333787" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AmusingRectangles/Component.java" afterPath="$PROJECT_DIR$/src/AmusingRectangles/Component.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AmusingRectangles/Entity.java" afterPath="$PROJECT_DIR$/src/AmusingRectangles/Entity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AmusingRectangles/Field.java" afterPath="$PROJECT_DIR$/src/AmusingRectangles/Field.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AmusingRectangles/InputHandler.java" afterPath="$PROJECT_DIR$/src/AmusingRectangles/InputHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NetTesting1.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="f7c8cfaa-366e-4ea7-b41a-6a9eba333787" time="1389562373385" ignored="false" />
-    <file path="/Component.java" changelist="f7c8cfaa-366e-4ea7-b41a-6a9eba333787" time="1389561896773" ignored="false" />
-    <file path="/Field.java" changelist="f7c8cfaa-366e-4ea7-b41a-6a9eba333787" time="1389562238005" ignored="false" />
-    <file path="/Entity.java" changelist="f7c8cfaa-366e-4ea7-b41a-6a9eba333787" time="1389562153752" ignored="false" />
+    <file path="/Dummy.txt" changelist="f7c8cfaa-366e-4ea7-b41a-6a9eba333787" time="1389562402041" ignored="false" />
+    <file path="/Component.java" changelist="f7c8cfaa-366e-4ea7-b41a-6a9eba333787" time="1389563384448" ignored="false" />
+    <file path="/Field.java" changelist="f7c8cfaa-366e-4ea7-b41a-6a9eba333787" time="1389564914338" ignored="false" />
+    <file path="/Entity.java" changelist="f7c8cfaa-366e-4ea7-b41a-6a9eba333787" time="1389563083458" ignored="false" />
     <file path="/.gitignore" changelist="f7c8cfaa-366e-4ea7-b41a-6a9eba333787" time="1389562396070" ignored="false" />
+    <file path="/InputHandler.java" changelist="f7c8cfaa-366e-4ea7-b41a-6a9eba333787" time="1389563165862" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,17 +79,10 @@
       <file leaf-file-name="Component.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AmusingRectangles/Component.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="185" column="0" selection-start="5717" selection-end="5717" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Entity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AmusingRectangles/Entity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="172" column="23" selection-start="5267" selection-end="5267" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="method#run#0;class#Component#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,7 +90,7 @@
       <file leaf-file-name="Field.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AmusingRectangles/Field.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="5" selection-start="821" selection-end="821" vertical-scroll-proportion="0.56557375">
+            <state line="40" column="45" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.65847">
               <folding />
             </state>
           </provider>
@@ -123,10 +116,11 @@
       <list>
         <option value="$PROJECT_DIR$/src/Star/Server.java" />
         <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/src/AmusingRectangles/Component.java" />
-        <option value="$PROJECT_DIR$/src/AmusingRectangles/Entity.java" />
-        <option value="$PROJECT_DIR$/src/AmusingRectangles/Field.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/AmusingRectangles/Entity.java" />
+        <option value="$PROJECT_DIR$/src/AmusingRectangles/InputHandler.java" />
+        <option value="$PROJECT_DIR$/src/AmusingRectangles/Component.java" />
+        <option value="$PROJECT_DIR$/src/AmusingRectangles/Field.java" />
       </list>
     </option>
   </component>
@@ -341,7 +335,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -353,7 +347,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32876712" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32876712" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -406,7 +400,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <option name="LAST_COMMIT_MESSAGE" value="Network fairly works." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -420,6 +414,7 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="Network fairly works." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -428,7 +423,9 @@
     <entry file="file://$PROJECT_DIR$/src/AmusingRectangles/Component.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="method#run#0;class#Component#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -481,20 +478,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AmusingRectangles/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AmusingRectangles/Component.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="0" selection-start="5717" selection-end="5717" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0">
@@ -502,9 +485,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AmusingRectangles/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="601" selection-end="601" vertical-scroll-proportion="0.5860215">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AmusingRectangles/InputHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="28" selection-start="3890" selection-end="3890" vertical-scroll-proportion="0.8781362">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AmusingRectangles/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="172" column="23" selection-start="5267" selection-end="5267" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="method#run#0;class#Component#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AmusingRectangles/Field.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="5" selection-start="821" selection-end="821" vertical-scroll-proportion="0.56557375">
+        <state line="40" column="45" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.65847">
           <folding />
         </state>
       </provider>

@@ -4,6 +4,7 @@ import Common.AuthResponse;
 import Common.Console;
 import Common.Listener;
 import Common.Packet;
+import Common.Update;
 import Star.Client;
 import Star.Server;
 
@@ -60,6 +61,7 @@ public class Component extends Canvas implements Runnable {
 
             @Override
             public void onConnected(AuthResponse response) {
+                Console.writeLine("Connected?");
                 // I am a pure client and want to gain the current game state
                 if (server == null) {
                     Console.writeLine(response.startId + ", " + response.entities.length);
@@ -82,6 +84,13 @@ public class Component extends Canvas implements Runnable {
             @Override
             public Entity[] onAskForEntities() {
                 return field.getRects().values().toArray(new Entity[]{});
+            }
+
+            @Override
+            public void onUpdate(Update o) {
+                ARect rect = field.getRects().get(o.id);
+                rect.setX(o.x);
+                rect.setY(o.y);
             }
         });
 
@@ -170,6 +179,7 @@ public class Component extends Canvas implements Runnable {
 
     private void update() {
         input.update();
+        field.update();
     }
 
     private void render() {
@@ -224,5 +234,9 @@ public class Component extends Canvas implements Runnable {
 
     public Client getClient() {
         return client;
+    }
+
+    public InputHandler getInput() {
+        return input;
     }
 }

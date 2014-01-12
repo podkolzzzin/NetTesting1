@@ -8,6 +8,7 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 public class InputHandler implements MouseMotionListener, KeyListener, MouseListener {
+    private boolean mousePressed;
     private int prevMouseX, prevMouseY;
     private int mouseX, mouseY;
 
@@ -113,10 +114,12 @@ public class InputHandler implements MouseMotionListener, KeyListener, MouseList
 
     @Override
     public void mousePressed(MouseEvent e) {
+        mousePressed = true;
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
+        mousePressed = false;
     }
 
     @Override
@@ -146,5 +149,9 @@ public class InputHandler implements MouseMotionListener, KeyListener, MouseList
 
     public boolean isMouseIn() {
         return this.mouseIn;
+    }
+
+    public boolean isMousePressed() {
+        return mousePressed;
     }
 }

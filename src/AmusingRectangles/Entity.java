@@ -13,6 +13,7 @@ public class Entity {
     private int width, height;
 
     public Entity() {
+        init();
     }
 
     public Entity(int x, int y, int width, int height) {
@@ -20,6 +21,8 @@ public class Entity {
         this.y = y;
         this.width = width;
         this.height = height;
+
+        init();
     }
 
     public void init() {

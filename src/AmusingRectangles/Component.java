@@ -14,6 +14,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.security.KeyPair;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Scanner;
@@ -61,11 +62,16 @@ public class Component extends Canvas implements Runnable {
             public void onConnected(AuthResponse response) {
                 // I am a pure client and want to gain the current game state
                 if (server == null) {
+                    Console.writeLine(response.startId + ", " + response.entities.length);
                     Entity.serialId = response.startId;
-                    for (Entity entity : response.entities) {
-                        field.addRect(entity.getId(), entity.getX(), entity.getY(), true);
+                    for (int i = 0, len = response.entities.length; i < len; ++i) {
+                        Entity entity = response.entities[i];
+                        Console.writeLine("Rect " + entity.getId() + " while receiving: " + entity.getX() + ", " + entity.getY());
+                        field.addRect(response.entities[i].getId(), response.entities[i].getX(), response.entities[i].getY(), true);
                     }
                 }
+
+                field.init();
             }
 
             @Override

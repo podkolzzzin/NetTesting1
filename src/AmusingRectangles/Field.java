@@ -1,5 +1,7 @@
 package AmusingRectangles;
 
+import Common.Console;
+
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -14,14 +16,18 @@ public class Field {
 
     public Field(Component component) {
         this.component = component;
+    }
 
+    public void init() {
         addRect(-1, 400 + random.nextInt(128), 200 + random.nextInt(96), false);
     }
 
     public void render(Graphics g) {
-        for (Iterator it = rects.entrySet().iterator(); it.hasNext(); ) {
-            ARect rect = (ARect) ((Map.Entry) it.next()).getValue();
-            rect.render(g);
+        synchronized (rects) {
+            for (Iterator it = rects.entrySet().iterator(); it.hasNext(); ) {
+                ARect rect = (ARect) ((Map.Entry) it.next()).getValue();
+                rect.render(g);
+            }
         }
     }
 
@@ -38,9 +44,6 @@ public class Field {
 
         if (id != -1) {
             rect.setId(id);
-//            rect.setColor(colors[id / 10000]);
-        } else {
-//            rect.setColor(Color.green);
         }
 
         rects.put(rect.getId(), rect);
@@ -48,6 +51,8 @@ public class Field {
         if (!fromReceiver) {
             component.getClient().send(rect);
         }
+
+        Console.writeLine("New rect (" + rect.getId() + "): " + rect.getX() + ", " + rect.getY() + " => " + rects.size());
     }
 
     public HashMap<Integer, ARect> getRects() {

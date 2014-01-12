@@ -70,6 +70,7 @@ public class Component extends Canvas implements Runnable {
 
             @Override
             public void onClientAdded() {
+                Console.writeLine("Client added to client");
             }
 
             @Override
@@ -88,6 +89,7 @@ public class Component extends Canvas implements Runnable {
 
             try {
                 client.connect("localhost");
+                server.setClient(client);
             } catch (IOException e) {
                 e.printStackTrace();
             }

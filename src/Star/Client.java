@@ -19,6 +19,10 @@ public class Client extends NetworkEntity {
     private com.esotericsoftware.kryonet.Client client;
     private Listener listener;
 
+    public Listener getListener() {
+        return listener;
+    }
+
     public Client(String protocol) {
         setProtocol(protocol);
         client = new com.esotericsoftware.kryonet.Client();
@@ -70,12 +74,6 @@ public class Client extends NetworkEntity {
             if(listener==null) {
                 Console.writeLine("You must add listener to Star.Client earlier!");
                 System.exit(-1);
-            }
-            if(command==NetworkEntity.ASK_FOR_ENTITIES) {
-                if(getProtocol().equals("UDP"))
-                    client.sendUDP(listener.onAskForEntities());
-                else
-                    client.sendTCP(listener.onAskForEntities());
             }
             else if(command == NetworkEntity.CLIENT_CONNECTED) {
                 listener.onClientAdded();

@@ -6,6 +6,10 @@ public class ARect extends Entity {
     public static final int WIDTH = 36;
     public static final int HEIGHT = WIDTH * 3 / 4;
 
+    public ARect() {
+
+    }
+
     public ARect(int x, int y) {
         super(x, y, WIDTH, HEIGHT);
     }

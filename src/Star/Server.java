@@ -13,8 +13,7 @@ import java.util.ArrayList;
 
 public class Server extends NetworkEntity {
     private com.esotericsoftware.kryonet.Server server;
-    private Boolean entitiesReceived = false;
-    private Entity[] entities;
+    private Client connectedClient;
 
     public Server(String protocol) {
         setProtocol(protocol);
@@ -33,6 +32,11 @@ public class Server extends NetworkEntity {
         Console.writeLine("server started, waiting for connections");
     }
 
+    public void setClient(Client client)
+    {
+        connectedClient = client;
+    }
+
     @Override
     public void received(Connection c, Object o) {
         if (o instanceof Packet) {
@@ -43,9 +47,6 @@ public class Server extends NetworkEntity {
                 server.sendToAllTCP(o);
             }
         }
-        else if(o instanceof ArrayList) {
-            entities = (Entity[]) o;
-        }
     }
 
     @Override
@@ -53,6 +54,8 @@ public class Server extends NetworkEntity {
         Console.writeLine("One more user connected. The are " + server.getConnections().length + " connections now");
 
         if(getProtocol().equals("UDP"))
+            server.sendToAllExceptUDP(c.getID(), NetworkEntity.CLIENT_CONNECTED);
+        else
             server.sendToAllExceptUDP(c.getID(), NetworkEntity.CLIENT_CONNECTED);
 
         AuthResponse response = new AuthResponse();
@@ -70,8 +73,6 @@ public class Server extends NetworkEntity {
     }
 
     private Entity[] askForEntities() {
-        server.getConnections()[0].sendTCP(NetworkEntity.ASK_FOR_ENTITIES);
-        while (!entitiesReceived) { }
-        return entities;
+        return connectedClient.getListener().onAskForEntities();
     }
 }

@@ -28,15 +28,13 @@ public class Field {
     public void update() {
         InputHandler input = component.getInput();
 
-
-
         if (!input.isMousePressed()) {
             prevX = input.getMouseX();
             prevY = input.getMouseY();
             draggedRect = null;
         }
 
-        if(input.isMousePressed() && draggedRect==null) {
+        if (input.isMousePressed() && draggedRect == null) {
             draggedRect = getElementAt(input.getMouseX(), input.getMouseY());
         }
 
@@ -44,13 +42,13 @@ public class Field {
             int dx = input.getMouseX() - prevX;
             int dy = input.getMouseY() - prevY;
 
-            Console.writeLine((dx) + ", " + (dy));
-
             draggedRect.setX(draggedRect.getX() + dx);
             draggedRect.setY(draggedRect.getY() + dy);
 
             prevX = input.getMouseX();
             prevY = input.getMouseY();
+
+            component.getClient().update(draggedRect);
         }
     }
 

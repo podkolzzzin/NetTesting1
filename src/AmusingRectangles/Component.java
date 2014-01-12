@@ -199,6 +199,10 @@ public class Component extends Canvas implements Runnable {
 
         field.render(g);
 
+        g.setColor(Color.white);
+        g.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        g.drawString(server == null ? "Client" : "Server", 10, 20);
+
         g.drawImage(buffer, 0, 0, buffer.getWidth(), buffer.getHeight(), null);
 
         g.dispose();

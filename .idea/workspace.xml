@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list id="f7c8cfaa-366e-4ea7-b41a-6a9eba333787" name="Default" comment="" />
-    <list default="true" id="eccacd49-9dc4-4a50-ad5c-df1b91b9f67f" name="New changelist" comment="">
-      <change type="DELETED" beforePath="E:\Software\NetTesting1\src\Common\Test1.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Star/Client.java" afterPath="$PROJECT_DIR$/src/Star/Client.java" />
+    <list default="true" id="eccacd49-9dc4-4a50-ad5c-df1b91b9f67f" name="New changelist" comment="Disconnection prerequisites.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AmusingRectangles/Component.java" afterPath="$PROJECT_DIR$/src/AmusingRectangles/Component.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AmusingRectangles/Entity.java" afterPath="$PROJECT_DIR$/src/AmusingRectangles/Entity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AmusingRectangles/Field.java" afterPath="$PROJECT_DIR$/src/AmusingRectangles/Field.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Common/Packet.java" afterPath="$PROJECT_DIR$/src/Common/Packet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NetTesting1.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="eccacd49-9dc4-4a50-ad5c-df1b91b9f67f" time="1389569048075" ignored="false" />
-    <file path="/Component.java" changelist="eccacd49-9dc4-4a50-ad5c-df1b91b9f67f" time="1389570065140" ignored="false" />
+    <file path="/Dummy.txt" changelist="eccacd49-9dc4-4a50-ad5c-df1b91b9f67f" time="1389570264003" ignored="false" />
+    <file path="/Component.java" changelist="eccacd49-9dc4-4a50-ad5c-df1b91b9f67f" time="1389570505542" ignored="false" />
     <file path="/Field.java" changelist="eccacd49-9dc4-4a50-ad5c-df1b91b9f67f" time="1389570124590" ignored="false" />
     <file path="/Client.java" changelist="eccacd49-9dc4-4a50-ad5c-df1b91b9f67f" time="1389569476190" ignored="false" />
     <file path="/Packet.java" changelist="eccacd49-9dc4-4a50-ad5c-df1b91b9f67f" time="1389569447303" ignored="false" />
@@ -83,7 +77,7 @@
       <file leaf-file-name="Component.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AmusingRectangles/Component.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="28" selection-start="2692" selection-end="2692" vertical-scroll-proportion="0.5081967">
+            <state line="203" column="64" selection-start="6093" selection-end="6093" vertical-scroll-proportion="0.5546448">
               <folding />
             </state>
           </provider>
@@ -140,8 +134,8 @@
         <option value="$PROJECT_DIR$/src/Common/Packet.java" />
         <option value="$PROJECT_DIR$/src/AmusingRectangles/Entity.java" />
         <option value="$PROJECT_DIR$/src/Star/Client.java" />
-        <option value="$PROJECT_DIR$/src/AmusingRectangles/Component.java" />
         <option value="$PROJECT_DIR$/src/AmusingRectangles/Field.java" />
+        <option value="$PROJECT_DIR$/src/AmusingRectangles/Component.java" />
       </list>
     </option>
   </component>
@@ -422,7 +416,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dragging works!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Disconnection prerequisites." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -438,6 +432,7 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="update" />
     <MESSAGE value="Dragging works!" />
+    <MESSAGE value="Disconnection prerequisites." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -543,7 +538,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AmusingRectangles/Component.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="28" selection-start="2692" selection-end="2692" vertical-scroll-proportion="0.5081967">
+        <state line="203" column="64" selection-start="6093" selection-end="6093" vertical-scroll-proportion="0.5546448">
           <folding />
         </state>
       </provider>

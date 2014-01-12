@@ -57,7 +57,7 @@ public class Server extends NetworkEntity {
 
         AuthResponse response = new AuthResponse();
         response.startId = (server.getConnections().length - 1) * 10000;
-        if(server.getConnections().length==0)
+        if(server.getConnections().length==1)
             response.entities = new Entity[0];
         else
         {

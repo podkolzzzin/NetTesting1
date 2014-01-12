@@ -6,5 +6,5 @@ package Common;
  */
 
 public class Update {
-    public int x,y,id;
+    public int x, y, id;
 }

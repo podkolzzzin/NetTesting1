@@ -83,7 +83,10 @@ public class Client extends NetworkEntity {
         } else if (o instanceof Update) {
             if (listener != null) { listener.onUpdate((Update) o); }
         } else if (o instanceof Disconnected) {
-            if (listener != null) { listener.onDisconnect(((Disconnected) o).userId); }
+            if (listener != null)
+            {
+                listener.onDisconnect(((Disconnected) o).userId);
+            }
         } else if (o instanceof Integer) {
             int command = (Integer) o;
             if (listener == null) {

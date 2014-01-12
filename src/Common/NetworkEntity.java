@@ -32,6 +32,7 @@ public class NetworkEntity extends Listener {
         kryo.register(ARect.class);
         kryo.register(AuthResponse.class);
         kryo.register(Update.class);
+        kryo.register(Disconnected.class);
     }
 
     protected void startOperation() {

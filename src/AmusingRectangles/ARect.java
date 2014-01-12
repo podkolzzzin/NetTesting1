@@ -3,7 +3,7 @@ package AmusingRectangles;
 import java.awt.*;
 
 public class ARect extends Entity {
-    public static final int WIDTH = 36;
+    public static final int WIDTH = 120;
     public static final int HEIGHT = WIDTH * 3 / 4;
 
     public ARect() {

@@ -1,5 +1,7 @@
 package AmusingRectangles;
 
+import Common.Console;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -100,6 +102,8 @@ public class InputHandler implements MouseMotionListener, KeyListener, MouseList
 
     @Override
     public void mouseDragged(MouseEvent e) {
+        mouseX = e.getX();
+        mouseY = e.getY();
     }
 
     @Override

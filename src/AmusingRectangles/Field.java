@@ -23,25 +23,31 @@ public class Field {
     }
 
     private int prevX, prevY;
+    private ARect draggedRect;
 
     public void update() {
         InputHandler input = component.getInput();
 
-        ARect rect = getElementAt(input.getMouseX(), input.getMouseY());
+
 
         if (!input.isMousePressed()) {
             prevX = input.getMouseX();
             prevY = input.getMouseY();
+            draggedRect = null;
         }
 
-        if (input.isMousePressed() && rect != null) {
+        if(input.isMousePressed() && draggedRect==null) {
+            draggedRect = getElementAt(input.getMouseX(), input.getMouseY());
+        }
+
+        if (input.isMousePressed() && draggedRect != null) {
             int dx = input.getMouseX() - prevX;
             int dy = input.getMouseY() - prevY;
 
             Console.writeLine((dx) + ", " + (dy));
 
-            rect.setX(input.getMouseX() - dx);
-            rect.setY(input.getMouseY() - dy);
+            draggedRect.setX(draggedRect.getX() + dx);
+            draggedRect.setY(draggedRect.getY() + dy);
 
             prevX = input.getMouseX();
             prevY = input.getMouseY();

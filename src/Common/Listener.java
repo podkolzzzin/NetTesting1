@@ -9,4 +9,5 @@ public interface Listener {
     public void onConnected(AuthResponse response);
     public void onClientAdded();
     public Entity[] onAskForEntities();
+    void onUpdate(Update o);
 }

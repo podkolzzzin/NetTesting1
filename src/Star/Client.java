@@ -6,6 +6,7 @@ import Common.Console;
 import Common.Listener;
 import Common.NetworkEntity;
 import Common.Packet;
+import Common.Update;
 import com.esotericsoftware.kryonet.Connection;
 
 import java.io.IOException;
@@ -53,6 +54,16 @@ public class Client extends NetworkEntity {
         send(e.getX(), e.getY(), e.getWidth(), e.getHeight(), e.getId());
     }
 
+    public void update(Entity e) {
+        startOperation();
+        Update u = new Update();
+        u.x = e.getX();
+        u.y = e.getY();
+        u.id = e.getId();
+        if (getProtocol().equals("UDP")) { client.sendUDP(u); } else { client.sendTCP(u); }
+        finishOperation();
+    }
+
     public void addEventListener(Listener listener) {
         this.listener = listener;
     }
@@ -68,6 +79,10 @@ public class Client extends NetworkEntity {
             if(listener!=null) {
                 listener.onConnected((AuthResponse) o);
             }
+        }
+        else if(o instanceof Update) {
+            if(listener!=null)
+                listener.onUpdate((Update)o);
         }
         else if(o instanceof Integer) {
             int command = (Integer) o;

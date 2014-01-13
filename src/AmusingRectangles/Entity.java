@@ -10,6 +10,8 @@ import java.awt.*;
 public class Entity {
     public static int serialId;
 
+    protected Field field;
+
     private int id;
     private int x, y;
     private int width, height;
@@ -19,7 +21,8 @@ public class Entity {
         init();
     }
 
-    public Entity(int x, int y, int width, int height) {
+    public Entity(Field field, int x, int y, int width, int height) {
+        this.field = field;
         this.x = x;
         this.y = y;
         this.width = width;
@@ -42,6 +45,11 @@ public class Entity {
 
     public boolean intersects(Rectangle rectangle) {
         return rectangle.intersects(getBB());
+    }
+
+    public void move(int dx, int dy) {
+        setX(getX() + dx);
+        setY(getY() + dy);
     }
 
     // ===================

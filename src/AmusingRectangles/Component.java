@@ -62,9 +62,9 @@ public class Component extends Canvas implements Runnable {
 
             @Override
             public void onConnected(AuthResponse response) {
-                // I am a pure client and want to gain the current game state
+                Console.writeLine("Connected: " + response.yourId + ", " + response.entities.length);
+
                 if (server == null) {
-                    //Entity.serialId = response.startId;
                     userId = response.yourId;
 
                     for (int i = 0, len = response.entities.length; i < len; ++i) {

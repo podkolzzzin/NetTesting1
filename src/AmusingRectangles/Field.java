@@ -26,7 +26,7 @@ public class Field {
     private ARect draggedRect;
 
     public void update() {
-        InputHandler input = component.getInput();
+        /*InputHandler input = component.getInput();
 
         if (!input.isMousePressed()) {
             prevX = input.getMouseX();
@@ -49,6 +49,12 @@ public class Field {
             prevY = input.getMouseY();
 
             component.getClient().update(draggedRect);
+        }*/
+
+        synchronized (rects) {
+            for (ARect rect : rects.values()) {
+                rect.update();
+            }
         }
     }
 
@@ -75,7 +81,7 @@ public class Field {
     // Data processing
 
     public void addRect(int id, int x, int y, int owner, boolean fromReceiver) {
-        ARect rect = new ARect(x, y);
+        ARect rect = new ARect(this, x, y);
 
         if (id != -1) {
             rect.setId(id);
@@ -98,10 +104,6 @@ public class Field {
         }
     }
 
-    public HashMap<Integer, ARect> getRects() {
-        return rects;
-    }
-
     public void removeAllByOwner(int userId) {
         synchronized (rects) {
             for (Iterator it = rects.entrySet().iterator(); it.hasNext(); ) {
@@ -111,5 +113,20 @@ public class Field {
                 }
             }
         }
+    }
+
+    // =======
+    // Getters
+
+    public HashMap<Integer, ARect> getRects() {
+        return rects;
+    }
+
+    public Component getComponent() {
+        return component;
+    }
+
+    public Random getRandom() {
+        return random;
     }
 }

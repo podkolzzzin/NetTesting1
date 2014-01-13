@@ -6,12 +6,30 @@ public class ARect extends Entity {
     public static final int WIDTH = 120;
     public static final int HEIGHT = WIDTH * 3 / 4;
 
-    public ARect() {
+    private int rotation;
 
+    public ARect(Field field, int x, int y) {
+        super(field, x, y, WIDTH, HEIGHT);
+
+        this.rotation = -field.getRandom().nextInt(360);
     }
 
-    public ARect(int x, int y) {
-        super(x, y, WIDTH, HEIGHT);
+    public void update() {
+        int speed = 8;
+        double angle = Math.toRadians(-rotation);
+        int dx = (int) (speed * Math.cos(angle));
+        int dy = (int) (speed * Math.sin(angle));
+
+        move(dx, dy);
+        field.getComponent().getClient().update(this);
+
+        if (getX() <= 0 || getX() >= Component.WIDTH - WIDTH) {
+            rotation = 180 - rotation;
+        }
+
+        if (getY() <= 0 || getY() + HEIGHT >= Component.HEIGHT) {
+            rotation = -rotation;
+        }
     }
 
     public void render(Graphics g) {

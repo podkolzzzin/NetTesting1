@@ -38,5 +38,7 @@ public class ARect extends Entity {
     public void render(Graphics g) {
         g.setColor(Color.green);
         g.fillRect(getX(), getY(), getWidth(), getHeight());
+        g.setColor(Color.black);
+        g.drawString(getOwner() == field.getComponent().getUserId() ? "Yours" : "", getX() + 5, getY() + 5);
     }
 }

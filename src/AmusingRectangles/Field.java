@@ -53,7 +53,9 @@ public class Field {
 
         synchronized (rects) {
             for (ARect rect : rects.values()) {
-                rect.update();
+                if (rect.getOwner() == component.getUserId()) {
+                    rect.update();
+                }
             }
         }
     }

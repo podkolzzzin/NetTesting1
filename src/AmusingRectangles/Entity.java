@@ -1,12 +1,6 @@
 package AmusingRectangles;
 
 import java.awt.*;
-import java.io.Serializable;
-
-/**
- * Created by Alexey
- * At 7:12 PM on 1/12/14
- */
 
 public class Entity {
     public static int serialId;

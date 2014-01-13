@@ -1,6 +1,7 @@
 package AmusingRectangles;
 
 import java.awt.*;
+import java.io.Serializable;
 
 /**
  * Created by Alexey
@@ -10,7 +11,7 @@ import java.awt.*;
 public class Entity {
     public static int serialId;
 
-    protected Field field;
+    protected transient Field field;
 
     private int id;
     private int x, y;

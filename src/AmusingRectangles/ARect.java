@@ -8,6 +8,9 @@ public class ARect extends Entity {
 
     private int rotation;
 
+    public ARect() {
+    }
+
     public ARect(Field field, int x, int y) {
         super(field, x, y, WIDTH, HEIGHT);
 

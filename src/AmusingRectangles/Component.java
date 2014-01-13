@@ -56,6 +56,7 @@ public class Component extends Canvas implements Runnable {
         client.addEventListener(new Listener() {
             @Override
             public void onReceived(Packet p) {
+                Entity.serialId = (int) p.id;
                 field.addRect((int) p.id, p.x, p.y, p.owner, true);
             }
 
@@ -63,7 +64,7 @@ public class Component extends Canvas implements Runnable {
             public void onConnected(AuthResponse response) {
                 // I am a pure client and want to gain the current game state
                 if (server == null) {
-                    Entity.serialId = response.startId;
+                    //Entity.serialId = response.startId;
                     userId = response.yourId;
 
                     for (int i = 0, len = response.entities.length; i < len; ++i) {
